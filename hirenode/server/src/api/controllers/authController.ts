@@ -7,13 +7,13 @@ const generateTokens = (userId, tenantId, role) => {
   const accessToken = jwt.sign(
     { userId, tenantId, role },
     config.jwt.secret,
-    { expiresIn: config.jwt.expiresIn }
+    { expiresIn: config.jwt.expiresIn as any }
   );
 
   const refreshToken = jwt.sign(
     { userId, tenantId },
     config.jwt.refreshSecret,
-    { expiresIn: config.jwt.refreshExpiresIn }
+    { expiresIn: config.jwt.refreshExpiresIn as any }
   );
 
   return { accessToken, refreshToken };
@@ -97,7 +97,7 @@ export const login = async (req, res, next) => {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    const isMatch = await user.comparePassword(password);
+    const isMatch = await (user as any).comparePassword(password);
     if (!isMatch) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
@@ -140,7 +140,7 @@ export const refreshToken = async (req, res, next) => {
     }
 
     const decoded = jwt.verify(token, config.jwt.refreshSecret);
-    const user = await User.findById(decoded.userId);
+    const user = await User.findById((decoded as any).userId);
 
     if (!user || user.refreshToken !== token) {
       return res.status(401).json({ error: 'Invalid refresh token' });

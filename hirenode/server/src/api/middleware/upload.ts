@@ -13,7 +13,7 @@ export const uploadCV = multer({
         file.mimetype === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
       cb(null, true);
     } else {
-      cb(new Error('Only PDF, TXT, and DOCX files are allowed'), false);
+      cb(new Error('Only PDF, TXT, and DOCX files are allowed') as any, false);
     }
   },
 });
@@ -28,7 +28,7 @@ export const uploadJD = multer({
         file.mimetype === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
       cb(null, true);
     } else {
-      cb(new Error('Only PDF, TXT, and DOCX files are allowed'), false);
+      cb(new Error('Only PDF, TXT, and DOCX files are allowed') as any, false);
     }
   },
 });
@@ -41,7 +41,7 @@ export const uploadAudio = multer({
     if (file.mimetype.startsWith('audio/')) {
       cb(null, true);
     } else {
-      cb(new Error('Only audio files are allowed'), false);
+      cb(new Error('Only audio files are allowed') as any, false);
     }
   },
 });
@@ -54,7 +54,7 @@ export const uploadLogo = multer({
     if (file.mimetype.startsWith('image/')) {
       cb(null, true);
     } else {
-      cb(new Error('Only image files are allowed'), false);
+      cb(new Error('Only image files are allowed') as any, false);
     }
   },
 });

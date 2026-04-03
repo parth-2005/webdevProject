@@ -1,0 +1,38 @@
+﻿src/api/controllers/adminController.ts(37,32): error TS2339: Property 'companyName' does not exist on type '{}'.
+src/api/controllers/adminController.ts(38,33): error TS2339: Property 'primaryColor' does not exist on type '{}'.
+src/api/controllers/authController.ts(7,27): error TS2769: No overload matches this call.
+  Overload 1 of 5, '(payload: string | object | Buffer<ArrayBufferLike>, secretOrPrivateKey: null, options?: SignOptions & { algorithm: "none"; }): string', gave the following error.
+    Argument of type 'string' is not assignable to parameter of type 'null'.
+  Overload 2 of 5, '(payload: string | object | Buffer<ArrayBufferLike>, secretOrPrivateKey: Buffer<ArrayBufferLike> | Secret | PrivateKeyInput | JsonWebKeyInput, options?: SignOptions): string', gave the following error.
+    Type 'string' is not assignable to type 'number | StringValue'.
+  Overload 3 of 5, '(payload: string | object | Buffer<ArrayBufferLike>, secretOrPrivateKey: Buffer<ArrayBufferLike> | Secret | PrivateKeyInput | JsonWebKeyInput, callback: SignCallback): void', gave the following error.
+    Object literal may only specify known properties, and 'expiresIn' does not exist in type 'SignCallback'.
+src/api/controllers/authController.ts(13,28): error TS2769: No overload matches this call.
+  Overload 1 of 5, '(payload: string | object | Buffer<ArrayBufferLike>, secretOrPrivateKey: null, options?: SignOptions & { algorithm: "none"; }): string', gave the following error.
+    Argument of type 'string' is not assignable to parameter of type 'null'.
+  Overload 2 of 5, '(payload: string | object | Buffer<ArrayBufferLike>, secretOrPrivateKey: Buffer<ArrayBufferLike> | Secret | PrivateKeyInput | JsonWebKeyInput, options?: SignOptions): string', gave the following error.
+    Type 'string' is not assignable to type 'number | StringValue'.
+  Overload 3 of 5, '(payload: string | object | Buffer<ArrayBufferLike>, secretOrPrivateKey: Buffer<ArrayBufferLike> | Secret | PrivateKeyInput | JsonWebKeyInput, callback: SignCallback): void', gave the following error.
+    Object literal may only specify known properties, and 'expiresIn' does not exist in type 'SignCallback'.
+src/api/controllers/authController.ts(100,32): error TS2339: Property 'comparePassword' does not exist on type 'Document<unknown, {}, { name: string; tenantId: ObjectId; email: string; passwordHash: string; role: "admin" | "hr_manager" | "recruiter" | "hiring_manager"; refreshToken?: string; lastLogin?: NativeDate; } & DefaultTimestampProps, {}, { ...; }> & { ...; } & DefaultTimestampProps & { ...; } & { ...; }'.
+src/api/controllers/authController.ts(143,46): error TS2339: Property 'userId' does not exist on type 'string | JwtPayload'.
+  Property 'userId' does not exist on type 'string'.
+src/api/controllers/candidateController.ts(109,22): error TS2339: Property 'pipelineStage' does not exist on type '{ jobId: any; tenantId: any; }'.
+src/api/controllers/candidateController.ts(111,13): error TS2339: Property '$or' does not exist on type '{ jobId: any; tenantId: any; }'.
+src/api/controllers/interviewController.ts(137,9): error TS2322: Type 'string | Transcription' is not assignable to type 'string'.
+  Type 'Transcription' is not assignable to type 'string'.
+src/api/controllers/interviewController.ts(162,10): error TS2362: The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+src/api/controllers/interviewController.ts(162,44): error TS2363: The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+src/api/controllers/interviewController.ts(262,16): error TS2339: Property 'audioBase64' does not exist on type '{ question: any; questionNumber: number; totalQuestions: number; interviewStatus: string; transcribedText: string; competencyAssessed: any; }'.
+src/api/controllers/interviewController.ts(286,8): error TS2362: The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+src/api/controllers/interviewController.ts(286,42): error TS2363: The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+src/api/controllers/jobController.ts(53,23): error TS2339: Property 'status' does not exist on type '{ tenantId: any; isTemplate: boolean; }'.
+src/api/middleware/auth.ts(15,46): error TS2339: Property 'userId' does not exist on type 'string | JwtPayload'.
+  Property 'userId' does not exist on type 'string'.
+src/api/middleware/auth.ts(59,46): error TS2339: Property 'userId' does not exist on type 'string | JwtPayload'.
+  Property 'userId' does not exist on type 'string'.
+src/api/middleware/errorHandler.ts(6,57): error TS2339: Property 'message' does not exist on type 'unknown'.
+src/api/middleware/upload.ts(16,10): error TS2345: Argument of type 'Error' is not assignable to parameter of type 'null'.
+src/api/middleware/upload.ts(31,10): error TS2345: Argument of type 'Error' is not assignable to parameter of type 'null'.
+src/api/middleware/upload.ts(44,10): error TS2345: Argument of type 'Error' is not assignable to parameter of type 'null'.
+src/api/middleware/upload.ts(57,10): error TS2345: Argument of type 'Error' is not assignable to parameter of type 'null'.

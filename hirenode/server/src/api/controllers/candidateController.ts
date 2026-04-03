@@ -101,7 +101,7 @@ export const getCandidatesByJob = async (req, res, next) => {
       search,
     } = req.query;
 
-    const query = {
+    const query: any = {
       jobId: req.params.jobId,
       tenantId: req.tenantId,
     };
@@ -114,7 +114,7 @@ export const getCandidatesByJob = async (req, res, next) => {
       ];
     }
 
-    const sortObj = {};
+    const sortObj: any = {};
     if (sort === 'score') {
       sortObj['scores.overall'] = order === 'asc' ? 1 : -1;
     } else {

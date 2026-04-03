@@ -134,7 +134,7 @@ export const processAudio = async (req, res, next) => {
     if (req.file) {
       try {
         const { transcribeAudio } = await import('../../services/groq.service.js');
-        transcribedText = await transcribeAudio(req.file.buffer, req.file.mimetype);
+        transcribedText = (await transcribeAudio(req.file.buffer, req.file.mimetype)) as string;
       } catch (sttError) {
         console.error('STT failed:', sttError.message);
         transcribedText = '[Audio transcription failed]';
@@ -159,7 +159,7 @@ export const processAudio = async (req, res, next) => {
       candidate.interview.status = 'completed';
       candidate.interview.completedAt = new Date();
       candidate.interview.duration = Math.round(
-        (candidate.interview.completedAt - candidate.interview.startedAt) / 1000
+        (Number(candidate.interview.completedAt) - Number(candidate.interview.startedAt)) / 1000
       );
       candidate.pipelineStage = 'completed';
       await candidate.save();
@@ -259,7 +259,7 @@ export const processAudio = async (req, res, next) => {
     };
 
     if (audioBuffer) {
-      response.audioBase64 = audioBuffer.toString('base64');
+      (response as any).audioBase64 = audioBuffer.toString('base64');
     }
 
     res.json(response);
@@ -283,7 +283,7 @@ export const concludeInterview = async (req, res, next) => {
     candidate.interview.status = 'completed';
     candidate.interview.completedAt = new Date();
     candidate.interview.duration = Math.round(
-      (candidate.interview.completedAt - candidate.interview.startedAt) / 1000
+      (Number(candidate.interview.completedAt) - Number(candidate.interview.startedAt)) / 1000
     );
     candidate.pipelineStage = 'completed';
     await candidate.save();

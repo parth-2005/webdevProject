@@ -12,7 +12,7 @@ export const authenticate = async (req, res, next) => {
     const token = authHeader.split(' ')[1];
     const decoded = jwt.verify(token, config.jwt.secret);
 
-    const user = await User.findById(decoded.userId).select('-passwordHash -refreshToken');
+    const user = await User.findById((decoded as any).userId).select('-passwordHash -refreshToken');
     if (!user) {
       return res.status(401).json({ error: 'Invalid token. User not found.' });
     }
@@ -56,7 +56,7 @@ export const optionalAuth = async (req, res, next) => {
 
     const token = authHeader.split(' ')[1];
     const decoded = jwt.verify(token, config.jwt.secret);
-    const user = await User.findById(decoded.userId).select('-passwordHash -refreshToken');
+    const user = await User.findById((decoded as any).userId).select('-passwordHash -refreshToken');
     if (user) {
       req.user = user;
       req.tenantId = user.tenantId;

@@ -33,7 +33,7 @@ export const updateSettings = async (req, res, next) => {
   try {
     const { companyName, primaryColor, interviewWindowHours, reminderEnabled, brandingEnabled } = req.body;
 
-    const updateObj = {};
+    const updateObj: any = {};
     if (companyName) updateObj.companyName = companyName;
     if (primaryColor) updateObj.primaryColor = primaryColor;
     if (interviewWindowHours !== undefined) updateObj['settings.interviewWindowHours'] = interviewWindowHours;
@@ -53,7 +53,7 @@ export const updateApiKeys = async (req, res, next) => {
   try {
     const { groq, gemini, googleTts } = req.body;
 
-    const updateObj = {};
+    const updateObj: any = {};
     if (groq) updateObj['apiKeys.groq'] = groq;
     if (gemini) updateObj['apiKeys.gemini'] = gemini;
     if (googleTts) updateObj['apiKeys.googleTts'] = googleTts;

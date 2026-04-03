@@ -48,7 +48,7 @@ export const createJob = async (req, res, next) => {
 export const getJobs = async (req, res, next) => {
   try {
     const { status, page = 1, limit = 20 } = req.query;
-    const query = { tenantId: req.tenantId, isTemplate: false };
+    const query: any = { tenantId: req.tenantId, isTemplate: false };
 
     if (status) query.status = status;
 

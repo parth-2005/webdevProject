@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  # MongoDB Database Service
+  mongo:
+    image: mongo:6-jammy
+    container_name: hirenode-mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    env_file:
+      - ./server/.env
+
+  # Backend API Service
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: hirenode-backend
+    restart: always
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./server/.env
+    environment:
+      # Automatically override MONGODB_URI for docker-compose networking
+      - MONGODB_URI=mongodb://mongo:27017/hirenode
+    depends_on:
+      - mongo
+
+volumes:
+  mongo_data:
